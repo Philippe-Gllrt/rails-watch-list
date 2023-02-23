@@ -1,0 +1,4 @@
+<h1><%= @list.name %></h1>
+<%= link_to "delete", list_path(@list) , data: { turbo_method: :delete, turbo_confirm: "are you sure to delete this playlist ?"} %>
+
+<p> <%= link_to 'Go back to all lists', lists_path %></p>
