@@ -1,4 +1,14 @@
 <h1><%= @list.name %></h1>
 <%= link_to "delete", list_path(@list) , data: { turbo_method: :delete, turbo_confirm: "are you sure to delete this playlist ?"} %>
+<% @list.bookmarks.each do |element| %>
+<div>
+  <p> <%= element.movie.title  %></p>
+  <p> <%= element.movie.rating  %></p>
+  <img src=<%=element.movie.poster_url%> alt="">
+  <p> <%= element.movie.overview %></p>
+  <p> <%= element.comment %></p>
+</div>
+<% end  %>
 
-<p> <%= link_to 'Go back to all lists', lists_path %></p>
+<p> <%= link_to 'ajouter un film', new_list_bookmark_path(@list) %></p>
+<p> <%= link_to 'Go back to all lists', root_path %></p>

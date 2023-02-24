@@ -1,6 +1,6 @@
 <h1>Lists#new</h1>
-<%= form_with model: @list do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
   <%= f.submit %>
+  <!--- <%= f.association :movies %> --->
 <% end %>
