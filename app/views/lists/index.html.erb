@@ -1,3 +1,4 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -10,10 +11,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <p class="nav-link"><%= link_to "New list", new_list_path  %></p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+            <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn"/>
+      	<label for="modal-btn">New list<i class="uil uil-expand-arrows"></i></label>
+      	<div class="modal">
+	      	<div class="modal-wrap">
+
+	      		<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+	      	</div>
+      	</div>
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
@@ -31,9 +39,12 @@
 </div>
 
 
-<% @list.each do |element| %>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-<%= link_to element.name, list_path(element) %>
+<div class="container">
+  <% @list.each do |element| %>
+    <div class="card-category">
+      <div class="layer">
+       <%= link_to element.name, list_path(element) %>
+      </div>
+    </div>
+  <% end  %>
 </div>
-<% end  %>
-<p><%= link_to "create a new list", new_list_path  %></p>
